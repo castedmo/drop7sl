@@ -1,0 +1,53 @@
+﻿<UserControl
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:System="clr-namespace:System;assembly=mscorlib" xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity" xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions" xmlns:ee="http://schemas.microsoft.com/expression/2010/effects" xmlns:local="clr-namespace:Drop7" x:Class="Drop7.MainPage"
+    mc:Ignorable="d" Width="331" Height="500">
+	<UserControl.Resources>
+		<local:App x:Key="AppDataSource" d:IsDataSource="True"/>
+	</UserControl.Resources>
+
+    <Grid x:Name="LayoutRoot" Background="#636363">
+        <Grid.RowDefinitions>
+        	<RowDefinition Height="50" />
+        	<RowDefinition Height="357" />
+        	<RowDefinition />
+        	<RowDefinition Height="68" />
+        </Grid.RowDefinitions>
+    	<Grid x:Name="BoardGrid" Margin="8,19,22,0" Grid.Row="1" Width="301" MouseLeftButtonUp="BoardGrid_MouseLeftButtonUp" HorizontalAlignment="Center" Height="301" VerticalAlignment="Top">
+    		<Grid.ColumnDefinitions>
+    			<ColumnDefinition Width="0.1428*"/>
+    			<ColumnDefinition Width="0.1428*"/>
+    			<ColumnDefinition Width="0.1428*"/>
+    			<ColumnDefinition Width="0.1428*"/>
+    			<ColumnDefinition Width="0.1428*"/>
+    			<ColumnDefinition Width="0.1428*"/>
+    			<ColumnDefinition Width="0.1428*"/>
+    		</Grid.ColumnDefinitions>
+    		<Grid.RowDefinitions>
+    			<RowDefinition Height="0.1428*"/>
+    			<RowDefinition Height="0.1428*"/>
+    			<RowDefinition Height="0.1428*"/>
+    			<RowDefinition Height="0.1428*"/>
+    			<RowDefinition Height="0.1428*"/>
+    			<RowDefinition Height="0.1428*"/>
+    			<RowDefinition Height="0.1428*"/>
+    		</Grid.RowDefinitions>
+
+            <i:Interaction.Behaviors>
+    			<ei:FluidMoveBehavior AppliesTo="Children" Duration="0:0:0.3" >
+    				<ei:FluidMoveBehavior.EaseY>
+    					<QuarticEase EasingMode="EaseIn"/>
+    				</ei:FluidMoveBehavior.EaseY>
+    			</ei:FluidMoveBehavior>
+    		</i:Interaction.Behaviors>
+    		<Image x:Name="BoardBackImage" Source="/Resources/board.png" Stretch="None" Grid.RowSpan="7" Grid.ColumnSpan="7" Width="301" Height="301" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+    	</Grid>
+    	<Image x:Name="NextMoveImage" HorizontalAlignment="Left" Height="41" Margin="8,8,0,0" VerticalAlignment="Top" Width="41" d:LayoutOverrides="GridBox"/>
+    	<TextBlock x:Name="ScoreText" Margin="149,8,22,8" TextWrapping="Wrap" FontSize="18.667" TextAlignment="Right" Foreground="White"/>
+    	<TextBlock x:Name="LevelText" Margin="8,1,163,8" Grid.Row="3" TextWrapping="Wrap" FontSize="29.333" Foreground="White"/>
+    	<StackPanel x:Name="LevelDotStack" Margin="8,8,0,3" Grid.Row="2" Orientation="Horizontal"/>
+    </Grid>
+</UserControl>
