@@ -487,7 +487,7 @@ namespace Drop7
         {
             int S = 0;
             int lc = 1;
-            int[] coef = new int[] { 7, 72, -73, 36 };
+            int[] coef = new int[] { 36, -73, 72, 7 };
             for (int ii = 0; ii < 4; ii++)
             {
                 S += lc * coef[ii];
